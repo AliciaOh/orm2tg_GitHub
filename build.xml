@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="orm2tg" basedir="." default="build">
+
+	<property name="projectname" value="orm2tg" />
+	<property name="main" value="" />
+
+	<import file="../jgralab/common.xml" />
+
+	<property name="schema.file" value="${project.dir}/ormschema.rsa.tg" />
+	<property name="xmi.schema.file" value="${project.dir}/ormschema.xmi" />
+	
+</project>

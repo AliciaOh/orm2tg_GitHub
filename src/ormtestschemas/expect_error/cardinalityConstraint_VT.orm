@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ormRoot:ORM2 xmlns:orm="http://schemas.neumont.edu/ORM/2006-04/ORMCore" xmlns:ormDiagram="http://schemas.neumont.edu/ORM/2006-04/ORMDiagram" xmlns:ormRoot="http://schemas.neumont.edu/ORM/2006-04/ORMRoot">
+	<orm:ORMModel id="_76647D9F-05B4-4E49-B788-21D360DF5423" Name="ORMModel1">
+		<orm:Objects>
+			<orm:ValueType id="_8094587B-A8E8-4246-9404-88FE3C0E3634" Name="Name">
+				<orm:CardinalityRestriction>
+					<orm:CardinalityConstraint id="_0AA754B5-BA05-43CF-B720-52FBD53792E9" Name="ObjectTypeCardinalityConstraint1">
+						<orm:Ranges>
+							<orm:CardinalityRange id="_F55A2D85-AB08-470C-9F15-93F0C2BB1109" From="5" To="5" />
+						</orm:Ranges>
+					</orm:CardinalityConstraint>
+				</orm:CardinalityRestriction>
+				<orm:ConceptualDataType id="_1DE858A7-67A2-4D19-8EB4-79870854F747" ref="_31164526-B744-46F4-AAD2-8ED61EE2DD33" Scale="0" Length="0" />
+			</orm:ValueType>
+		</orm:Objects>
+		<orm:DataTypes>
+			<orm:VariableLengthTextDataType id="_31164526-B744-46F4-AAD2-8ED61EE2DD33" />
+		</orm:DataTypes>
+		<orm:ReferenceModeKinds>
+			<orm:ReferenceModeKind id="_94083E7E-21CB-4401-B229-4BF912A6B661" FormatString="{1}" ReferenceModeType="General" />
+			<orm:ReferenceModeKind id="_BDBAA364-60F6-449A-8C69-08D363784E32" FormatString="{0}_{1}" ReferenceModeType="Popular" />
+			<orm:ReferenceModeKind id="_1A678A95-5DC1-4AA5-8782-F074C30B7D29" FormatString="{1}Value" ReferenceModeType="UnitBased" />
+		</orm:ReferenceModeKinds>
+	</orm:ORMModel>
+	<ormDiagram:ORMDiagram id="_97B414D4-9802-4742-BD64-7856C7712C29" IsCompleteView="false" Name="ORMModel1" BaseFontName="Tahoma" BaseFontSize="0.0972222238779068">
+		<ormDiagram:Shapes>
+			<ormDiagram:ObjectTypeShape id="_84901DAE-CE21-442A-B842-115804471493" IsExpanded="true" AbsoluteBounds="3.4638766050338745, 1.2333333492279053, 0.44445383071899419, 0.22950302660465241">
+				<ormDiagram:RelativeShapes>
+					<ormDiagram:CardinalityConstraintShape id="_1B8EF213-75B5-41DF-8DD4-D6E0986242FE" IsExpanded="true" AbsoluteBounds="3.9683304357528688, 1.2333333492279053, 0.23283329606056213, 0.12950302660465241">
+						<ormDiagram:Subject ref="_0AA754B5-BA05-43CF-B720-52FBD53792E9" />
+					</ormDiagram:CardinalityConstraintShape>
+				</ormDiagram:RelativeShapes>
+				<ormDiagram:Subject ref="_8094587B-A8E8-4246-9404-88FE3C0E3634" />
+			</ormDiagram:ObjectTypeShape>
+		</ormDiagram:Shapes>
+		<ormDiagram:Subject ref="_76647D9F-05B4-4E49-B788-21D360DF5423" />
+	</ormDiagram:ORMDiagram>
+</ormRoot:ORM2>

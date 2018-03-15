@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ormRoot:ORM2 xmlns:orm="http://schemas.neumont.edu/ORM/2006-04/ORMCore" xmlns:ormDiagram="http://schemas.neumont.edu/ORM/2006-04/ORMDiagram" xmlns:ormRoot="http://schemas.neumont.edu/ORM/2006-04/ORMRoot">
+	<orm:ORMModel id="_93E1AE62-18B6-4097-A260-9FD184127639" Name="ORMModel1">
+		<orm:Objects>
+			<orm:EntityType id="_94430B68-2A5A-45CD-BF22-758BF0334503" Name="Tournament" _ReferenceMode="name">
+				<orm:PlayedRoles>
+					<orm:Role ref="_TournamentsRoleWithTournamentName" />
+					<orm:Role ref="_TournamentsRoleWithDate" />
+					<orm:Role ref="_TournamentsRoleWithCity" />
+				</orm:PlayedRoles>
+				<orm:PreferredIdentifier ref="_TournamentHasTournamentNameUC1" />
+			</orm:EntityType>
+			<orm:ValueType id="_1E76734C-EB42-4159-89FD-AC88766FE921" Name="Tournament_name">
+				<orm:PlayedRoles>
+					<orm:Role ref="_Tournament_Name" />
+				</orm:PlayedRoles>
+				<orm:ConceptualDataType id="_B5527756-B410-4EC9-8FA3-0110F96352BC" ref="_69E17097-F1C6-44A1-8A4F-0AC2F4DB89AE" Scale="0" Length="0" />
+			</orm:ValueType>
+			<orm:EntityType id="_92F9FA80-A73A-48E8-B4E5-5C6585761219" Name="City" _ReferenceMode="name">
+				<orm:PlayedRoles>
+					<orm:Role ref="_7150D367-D7E2-4D99-B9CB-D0126CFA58A9" />
+					<orm:Role ref="_CitysRoleWithTournament" />
+				</orm:PlayedRoles>
+				<orm:PreferredIdentifier ref="_CityHasCityNameUC1" />
+			</orm:EntityType>
+			<orm:ValueType id="_CECE3E56-34DE-421B-ACD3-D8E78957A5DB" Name="City_name">
+				<orm:PlayedRoles>
+					<orm:Role ref="_A3A44EBB-45EB-4815-A2A2-E7FA4057BF3E" />
+				</orm:PlayedRoles>
+				<orm:ConceptualDataType id="_99B8232E-DCE6-443A-B1D5-0CB4C1698D6D" ref="_69E17097-F1C6-44A1-8A4F-0AC2F4DB89AE" Scale="0" Length="0" />
+			</orm:ValueType>
+			<orm:EntityType id="_AD8CE22B-F8A9-43F2-9F55-736B82099863" Name="Date" _ReferenceMode="code">
+				<orm:PlayedRoles>
+					<orm:Role ref="_D93A0818-499D-403D-8D6A-CB4FA1DAD225" />
+					<orm:Role ref="_DatesRoleWithTournament" />
+				</orm:PlayedRoles>
+				<orm:PreferredIdentifier ref="_DatHasDateCodeUC1" />
+			</orm:EntityType>
+			<orm:ValueType id="_66DB6604-7EBD-41DB-A5A7-331EE06031E7" Name="Date_code">
+				<orm:PlayedRoles>
+					<orm:Role ref="_58A1BE1F-542B-4048-8665-08468CA3F773" />
+				</orm:PlayedRoles>
+				<orm:ConceptualDataType id="_D0F3F70E-B7CC-476C-8DC8-785C76A72B6C" ref="_308EC268-9F30-41C8-9902-0EA92106221E" Scale="0" Length="0" />
+			</orm:ValueType>
+		</orm:Objects>
+		<orm:Facts>
+			<orm:Fact id="_375CBC70-3F3D-471A-AB53-36F16A73882A" _Name="TournamentHasTournamentName">
+				<orm:FactRoles>
+					<orm:Role id="_TournamentsRoleWithTournamentName" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
+						<orm:RolePlayer ref="_94430B68-2A5A-45CD-BF22-758BF0334503" />
+					</orm:Role>
+					<orm:Role id="_Tournament_Name" _IsMandatory="false" _Multiplicity="ExactlyOne" Name="">
+						<orm:RolePlayer ref="_1E76734C-EB42-4159-89FD-AC88766FE921" />
+					</orm:Role>
+				</orm:FactRoles>
+				<orm:ReadingOrders>
+					<orm:ReadingOrder id="_05F539A0-A7ED-42FD-AE54-07FC72A07786">
+						<orm:Readings>
+							<orm:Reading id="_EE1DB4D1-B370-4EB1-BA11-49E36BA3CC6F">
+								<orm:Data>{0} has {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" has " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_TournamentsRoleWithTournamentName" />
+							<orm:Role ref="_Tournament_Name" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+					<orm:ReadingOrder id="_3E2CF211-4D16-48FC-AF51-6398815A0BDB">
+						<orm:Readings>
+							<orm:Reading id="_285160BC-DF3E-4767-B9BD-E997E1727550">
+								<orm:Data>{0} is of {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" is of " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_Tournament_Name" />
+							<orm:Role ref="_TournamentsRoleWithTournamentName" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+				</orm:ReadingOrders>
+				<orm:InternalConstraints>
+					<orm:UniquenessConstraint ref="_TournamentHasTournamentNameUC1" />
+					<orm:UniquenessConstraint ref="_TournamentHasTournamentNameUC2" />
+					<orm:MandatoryConstraint ref="_TournamentHasTournamentNameMRC1" />
+				</orm:InternalConstraints>
+			</orm:Fact>
+			<orm:Fact id="_FD1BF043-F174-4DDC-A96B-BA1B4997A0B6" _Name="TournamentTakesPlaceInCity">
+				<orm:FactRoles>
+					<orm:Role id="_TournamentsRoleWithCity" _IsMandatory="false" _Multiplicity="ZeroToMany" Name="">
+						<orm:RolePlayer ref="_94430B68-2A5A-45CD-BF22-758BF0334503" />
+					</orm:Role>
+					<orm:Role id="_CitysRoleWithTournament" _IsMandatory="false" _Multiplicity="ZeroToOne" Name="">
+						<orm:RolePlayer ref="_92F9FA80-A73A-48E8-B4E5-5C6585761219" />
+					</orm:Role>
+				</orm:FactRoles>
+				<orm:ReadingOrders>
+					<orm:ReadingOrder id="_DE4E2688-1E9C-4488-9042-E46931061897">
+						<orm:Readings>
+							<orm:Reading id="_D43B2AFD-4D2D-49EC-86D4-70B1BAD969A1">
+								<orm:Data>{0} takes place in {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" takes place in " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_TournamentsRoleWithCity" />
+							<orm:Role ref="_CitysRoleWithTournament" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+				</orm:ReadingOrders>
+				<orm:InternalConstraints>
+					<orm:UniquenessConstraint ref="_TournamentTakesPlaceInCityUC1" />
+				</orm:InternalConstraints>
+			</orm:Fact>
+			<orm:Fact id="_411B1CF6-B818-4C9A-A287-702189D4B2C6" _Name="TournamentTakesPlaceOnDate">
+				<orm:FactRoles>
+					<orm:Role id="_DatesRoleWithTournament" _IsMandatory="false" _Multiplicity="ZeroToOne" Name="">
+						<orm:RolePlayer ref="_AD8CE22B-F8A9-43F2-9F55-736B82099863" />
+					</orm:Role>
+					<orm:Role id="_TournamentsRoleWithDate" _IsMandatory="false" _Multiplicity="ZeroToMany" Name="">
+						<orm:RolePlayer ref="_94430B68-2A5A-45CD-BF22-758BF0334503" />
+					</orm:Role>
+				</orm:FactRoles>
+				<orm:ReadingOrders>
+					<orm:ReadingOrder id="_1D2F0AAD-2D8F-4CF0-B789-DFF46E5F97A1">
+						<orm:Readings>
+							<orm:Reading id="_616C1041-98B3-4957-AF7F-C755E139DC90">
+								<orm:Data>{0} takes place on {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" takes place on " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_TournamentsRoleWithDate" />
+							<orm:Role ref="_DatesRoleWithTournament" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+				</orm:ReadingOrders>
+				<orm:InternalConstraints>
+					<orm:UniquenessConstraint ref="_TournamentTakesPlaceOnDateUC1" />
+				</orm:InternalConstraints>
+			</orm:Fact>
+			<orm:Fact id="_B224EBC3-1DDA-4495-879F-3CF668F17C67" _Name="CityHasCityName">
+				<orm:FactRoles>
+					<orm:Role id="_7150D367-D7E2-4D99-B9CB-D0126CFA58A9" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
+						<orm:RolePlayer ref="_92F9FA80-A73A-48E8-B4E5-5C6585761219" />
+					</orm:Role>
+					<orm:Role id="_A3A44EBB-45EB-4815-A2A2-E7FA4057BF3E" _IsMandatory="false" _Multiplicity="ExactlyOne" Name="">
+						<orm:RolePlayer ref="_CECE3E56-34DE-421B-ACD3-D8E78957A5DB" />
+					</orm:Role>
+				</orm:FactRoles>
+				<orm:ReadingOrders>
+					<orm:ReadingOrder id="_12E53168-9554-4D8C-A1D0-DD5FFFB2D836">
+						<orm:Readings>
+							<orm:Reading id="_BCA61270-C55E-43DC-8ABA-45A0822F87CD">
+								<orm:Data>{0} has {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" has " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_7150D367-D7E2-4D99-B9CB-D0126CFA58A9" />
+							<orm:Role ref="_A3A44EBB-45EB-4815-A2A2-E7FA4057BF3E" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+					<orm:ReadingOrder id="_A06EFDCF-0CD5-4209-884E-1FD13C6A044A">
+						<orm:Readings>
+							<orm:Reading id="_FAF56D6D-97C6-4222-9823-E740D25CF9EA">
+								<orm:Data>{0} is of {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" is of " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_A3A44EBB-45EB-4815-A2A2-E7FA4057BF3E" />
+							<orm:Role ref="_7150D367-D7E2-4D99-B9CB-D0126CFA58A9" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+				</orm:ReadingOrders>
+				<orm:InternalConstraints>
+					<orm:UniquenessConstraint ref="_CityHasCityNameUC1" />
+					<orm:UniquenessConstraint ref="_CityHasCityNameUC2" />
+					<orm:MandatoryConstraint ref="_CityHasCityNameMRC1" />
+				</orm:InternalConstraints>
+			</orm:Fact>
+			<orm:Fact id="_7DEE94CD-705A-42E5-825D-789C32CDE66F" _Name="DateHasDateCode">
+				<orm:FactRoles>
+					<orm:Role id="_D93A0818-499D-403D-8D6A-CB4FA1DAD225" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
+						<orm:RolePlayer ref="_AD8CE22B-F8A9-43F2-9F55-736B82099863" />
+					</orm:Role>
+					<orm:Role id="_58A1BE1F-542B-4048-8665-08468CA3F773" _IsMandatory="false" _Multiplicity="ExactlyOne" Name="">
+						<orm:RolePlayer ref="_66DB6604-7EBD-41DB-A5A7-331EE06031E7" />
+					</orm:Role>
+				</orm:FactRoles>
+				<orm:ReadingOrders>
+					<orm:ReadingOrder id="_8463952A-713A-4B77-8BB4-440E69E719BA">
+						<orm:Readings>
+							<orm:Reading id="_A92FDD52-5273-42DC-A492-9829B3A900BC">
+								<orm:Data>{0} has {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" has " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_D93A0818-499D-403D-8D6A-CB4FA1DAD225" />
+							<orm:Role ref="_58A1BE1F-542B-4048-8665-08468CA3F773" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+					<orm:ReadingOrder id="_112540B4-0F91-45B2-8182-375B5804B536">
+						<orm:Readings>
+							<orm:Reading id="_69B2A169-E1C7-48E9-BAEA-AE1377A580BF">
+								<orm:Data>{0} is of {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" is of " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_58A1BE1F-542B-4048-8665-08468CA3F773" />
+							<orm:Role ref="_D93A0818-499D-403D-8D6A-CB4FA1DAD225" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+				</orm:ReadingOrders>
+				<orm:InternalConstraints>
+					<orm:UniquenessConstraint ref="_DatHasDateCodeUC1" />
+					<orm:UniquenessConstraint ref="_DatHasDateCodeUC2" />
+					<orm:MandatoryConstraint ref="_DatHasDateCodeMRC1" />
+				</orm:InternalConstraints>
+			</orm:Fact>
+		</orm:Facts>
+		<orm:Constraints>
+		<!-- UC auf der Rolle von TournamentName -->
+			<orm:UniquenessConstraint id="_TournamentHasTournamentNameUC1" Name="InternalUniquenessConstraint1" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_A8436A39-4238-4177-A451-3210A5628364" ref="_Tournament_Name" />
+				</orm:RoleSequence>
+				<orm:PreferredIdentifierFor ref="_94430B68-2A5A-45CD-BF22-758BF0334503" />
+			</orm:UniquenessConstraint>
+			<!-- UC auf Rolle von Tournament mit seinem ReferenceMode TournamentName -->
+			<orm:UniquenessConstraint id="_TournamentHasTournamentNameUC2" Name="InternalUniquenessConstraint2" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_2A645420-383E-4F95-8370-B6D7276537E2" ref="_TournamentsRoleWithTournamentName" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<!-- (expliziter) MRC auf Rolle von Tournament mit seinem ReferenceMode TournamentName -->
+			<orm:MandatoryConstraint id="_TournamentHasTournamentNameMRC1" Name="SimpleMandatoryConstraint1" IsSimple="true">
+				<orm:RoleSequence>
+					<orm:Role id="_6E4CEAE2-5F37-447F-AD7C-BC8971C72062" ref="_TournamentsRoleWithTournamentName" />
+				</orm:RoleSequence>
+			</orm:MandatoryConstraint>
+			<!-- (impliziter) MRC auf Rolle von TournamentName mit Tournament-->
+			<orm:MandatoryConstraint id="_5CE5DD8D-CEB9-431B-9B95-B21DFC2414AC" Name="ImpliedMandatoryConstraint1" IsImplied="true">
+				<orm:RoleSequence>
+					<orm:Role id="_4E5D8936-19E9-4DA8-B036-A410C98F8CFD" ref="_Tournament_Name" />
+				</orm:RoleSequence>
+				<orm:ImpliedByObjectType ref="_1E76734C-EB42-4159-89FD-AC88766FE921" />
+			</orm:MandatoryConstraint>
+			<!-- (impliziter) MRC auf den Rollen von Tournament mit Date und City (TOURNAMENT MUSS EINE DER BEIDEN ROLLEN SPIELEN => dsjunctive MRC - hat nichts mit dem external UC zu tun) -->
+			<orm:MandatoryConstraint id="_B26339C4-28B6-495C-B87B-A91484485213" Name="ImpliedMandatoryConstraint3" IsImplied="true">
+				<orm:RoleSequence>
+					<orm:Role id="_E716C0BD-DEB0-4A32-B59C-7769009DFE0C" ref="_TournamentsRoleWithDate" />
+					<orm:Role id="_61AD1EE1-2CAF-4E4C-9607-CBE15283291E" ref="_TournamentsRoleWithCity" />
+				</orm:RoleSequence>
+				<orm:ImpliedByObjectType ref="_94430B68-2A5A-45CD-BF22-758BF0334503" />
+			</orm:MandatoryConstraint>
+			<!-- UC auf der Rolle von CityName -->
+			<orm:UniquenessConstraint id="_CityHasCityNameUC1" Name="InternalUniquenessConstraint3" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_8F4DF4C4-FC71-4544-880A-216F8A2FFA61" ref="_A3A44EBB-45EB-4815-A2A2-E7FA4057BF3E" />
+				</orm:RoleSequence>
+				<orm:PreferredIdentifierFor ref="_92F9FA80-A73A-48E8-B4E5-5C6585761219" />
+			</orm:UniquenessConstraint>
+			<!-- UC auf der Rolle von City -->
+			<orm:UniquenessConstraint id="_CityHasCityNameUC2" Name="InternalUniquenessConstraint4" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_E03540C0-0DDF-4444-9878-35B66D16CE43" ref="_7150D367-D7E2-4D99-B9CB-D0126CFA58A9" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<!-- (expliziter) MRC auf der Rolle von City mit seinem ReferenceMode CityName -->
+			<orm:MandatoryConstraint id="_CityHasCityNameMRC1" Name="SimpleMandatoryConstraint2" IsSimple="true">
+				<orm:RoleSequence>
+					<orm:Role id="_B8C28063-933A-4537-8A68-00DA2AAA486A" ref="_7150D367-D7E2-4D99-B9CB-D0126CFA58A9" />
+				</orm:RoleSequence>
+			</orm:MandatoryConstraint>
+			<!-- (impliziter) MRC auf der Rolle von CityName mit City -->
+			<orm:MandatoryConstraint id="_E2AEABAF-279D-4F9E-94AB-5DDD7FB981C4" Name="ImpliedMandatoryConstraint4" IsImplied="true">
+				<orm:RoleSequence>
+					<orm:Role id="_6D055908-B91D-4B71-A231-B7241DC4D3AC" ref="_A3A44EBB-45EB-4815-A2A2-E7FA4057BF3E" />
+				</orm:RoleSequence>
+				<orm:ImpliedByObjectType ref="_CECE3E56-34DE-421B-ACD3-D8E78957A5DB" />
+			</orm:MandatoryConstraint>
+			<!-- (impliziter) MRC auf der Rolle von City mit Tournament -->
+			<orm:MandatoryConstraint id="_E42EB5B8-2F23-404E-8F86-C582C67F7B9A" Name="ImpliedMandatoryConstraint5" IsImplied="true">
+				<orm:RoleSequence>
+					<orm:Role id="_D5E2B38A-49C3-4B79-9CB0-29D1BEFCBBCF" ref="_CitysRoleWithTournament" />
+				</orm:RoleSequence>
+				<orm:ImpliedByObjectType ref="_92F9FA80-A73A-48E8-B4E5-5C6585761219" />
+			</orm:MandatoryConstraint>
+			<!-- UC on Tournaments role with City -->
+			<orm:UniquenessConstraint id="_TournamentTakesPlaceInCityUC1" Name="InternalUniquenessConstraint5" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_8BCFFFCF-69FC-495A-A54C-A0048CF3C62D" ref="_TournamentsRoleWithCity" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<!-- UC on Tournaments role with Date -->
+			<orm:UniquenessConstraint id="_TournamentTakesPlaceOnDateUC1" Name="InternalUniquenessConstraint6" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_315504DE-E0D8-4A1C-9C3F-717F484C36C2" ref="_TournamentsRoleWithDate" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<!-- external UC on roles of Date with Tournament and City with Tournament-->
+			<orm:UniquenessConstraint id="_67CEE11C-4CD0-4FC9-8BBA-DEA59B001EDE" Name="ExternalUniquenessConstraint1">
+				<orm:RoleSequence>
+					<orm:Role id="_0369D8A8-4EDA-4E25-86C5-CFDF50E9BE9B" ref="_CitysRoleWithTournament" />
+					<orm:Role id="_430B8212-E278-4945-912F-02AEA05F1AF6" ref="_DatesRoleWithTournament" />
+					<orm:JoinRule>
+						<orm:JoinPath id="_9F00F4CF-0F3C-4D12-A109-0623CB2B2AEE" IsAutomatic="true">
+							<orm:PathComponents>
+								<orm:RolePath id="_AB91BB86-2B73-4583-B88F-0712898366E9" SplitCombinationOperator="And">
+									<orm:RootObjectType id="_B0F20BEC-6E7D-47D3-A567-1ED2535E029C" ref="_94430B68-2A5A-45CD-BF22-758BF0334503" />
+									<orm:SubPaths>
+										<orm:SubPath id="_06954318-DCDF-43E0-8E0F-22801F789F8F">
+											<orm:PathedRoles>
+												<orm:PathedRole id="_D71432D4-99A2-46D2-9CB9-B78FCD5B44A6" ref="_TournamentsRoleWithCity" Purpose="PostInnerJoin" />
+												<orm:PathedRole id="_B7E344CF-0BC8-482F-9A0D-41C247508D9D" ref="_CitysRoleWithTournament" Purpose="SameFactType" />
+											</orm:PathedRoles>
+										</orm:SubPath>
+										<orm:SubPath id="_01F8016D-F1F6-4A7D-93D0-FEC8AEBCA7BE">
+											<orm:PathedRoles>
+												<orm:PathedRole id="_05DAA324-A0E6-4C77-A98B-C7F0A86DC968" ref="_TournamentsRoleWithDate" Purpose="PostInnerJoin" />
+												<orm:PathedRole id="_BA67C3D8-4007-40DC-9DBA-2CD0629FF0CE" ref="_DatesRoleWithTournament" Purpose="SameFactType" />
+											</orm:PathedRoles>
+										</orm:SubPath>
+									</orm:SubPaths>
+								</orm:RolePath>
+							</orm:PathComponents>
+							<orm:JoinPathProjections>
+								<orm:JoinPathProjection id="_48E61105-0097-48AE-AC17-D57D64F75DB7" ref="_AB91BB86-2B73-4583-B88F-0712898366E9">
+									<orm:ConstraintRoleProjection id="_08443714-0142-4C87-9311-0550F0023E0F" ref="_0369D8A8-4EDA-4E25-86C5-CFDF50E9BE9B">
+										<orm:ProjectedFrom>
+											<orm:PathedRole ref="_B7E344CF-0BC8-482F-9A0D-41C247508D9D" />
+										</orm:ProjectedFrom>
+									</orm:ConstraintRoleProjection>
+									<orm:ConstraintRoleProjection id="_246CE14E-3D05-4BBF-A5FE-0E64358CC780" ref="_430B8212-E278-4945-912F-02AEA05F1AF6">
+										<orm:ProjectedFrom>
+											<orm:PathedRole ref="_BA67C3D8-4007-40DC-9DBA-2CD0629FF0CE" />
+										</orm:ProjectedFrom>
+									</orm:ConstraintRoleProjection>
+								</orm:JoinPathProjection>
+							</orm:JoinPathProjections>
+						</orm:JoinPath>
+					</orm:JoinRule>
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<!-- UC auf Rolle von DateCode mit Date -->
+			<orm:UniquenessConstraint id="_DatHasDateCodeUC1" Name="InternalUniquenessConstraint7" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_B39394F1-5E31-4E5D-9205-0B90E18FD8D7" ref="_58A1BE1F-542B-4048-8665-08468CA3F773" />
+				</orm:RoleSequence>
+				<orm:PreferredIdentifierFor ref="_AD8CE22B-F8A9-43F2-9F55-736B82099863" />
+			</orm:UniquenessConstraint>
+			<!-- UC auf Rolle von Date mit seinem ReferenceMode DateCode -->
+			<orm:UniquenessConstraint id="_DatHasDateCodeUC2" Name="InternalUniquenessConstraint8" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_1009B7A1-40C1-481B-851A-1D0690E9DA7A" ref="_D93A0818-499D-403D-8D6A-CB4FA1DAD225" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<!-- (expliziter) MRC auf Rolle von Date mit DateCode -->
+			<orm:MandatoryConstraint id="_DatHasDateCodeMRC1" Name="SimpleMandatoryConstraint3" IsSimple="true">
+				<orm:RoleSequence>
+					<orm:Role id="_F2894012-E475-47A4-B187-022765EC598F" ref="_D93A0818-499D-403D-8D6A-CB4FA1DAD225" />
+				</orm:RoleSequence>
+			</orm:MandatoryConstraint>
+			<!-- (impliziter) MRC auf Rolle von DateCode mit Date -->
+			<orm:MandatoryConstraint id="_1EA63EBE-D9DE-451C-90F3-93056A21ED42" Name="ImpliedMandatoryConstraint2" IsImplied="true">
+				<orm:RoleSequence>
+					<orm:Role id="_7B51B673-2291-4404-90A1-A42749BC0E93" ref="_58A1BE1F-542B-4048-8665-08468CA3F773" />
+				</orm:RoleSequence>
+				<orm:ImpliedByObjectType ref="_66DB6604-7EBD-41DB-A5A7-331EE06031E7" />
+			</orm:MandatoryConstraint>
+			<!-- (impliziter) MRC auf der Rolle von Date mit Tournament -->
+			<orm:MandatoryConstraint id="_DA8EBAB1-1932-435E-BFEF-92C336978A42" Name="ImpliedMandatoryConstraint6" IsImplied="true">
+				<orm:RoleSequence>
+					<orm:Role id="_138568E5-F474-4DF5-8071-3007FD101A58" ref="_DatesRoleWithTournament" />
+				</orm:RoleSequence>
+				<orm:ImpliedByObjectType ref="_AD8CE22B-F8A9-43F2-9F55-736B82099863" />
+			</orm:MandatoryConstraint>
+		</orm:Constraints>
+		<orm:DataTypes>
+			<orm:FixedLengthTextDataType id="_308EC268-9F30-41C8-9902-0EA92106221E" />
+			<orm:VariableLengthTextDataType id="_69E17097-F1C6-44A1-8A4F-0AC2F4DB89AE" />
+		</orm:DataTypes>
+		<orm:ReferenceModeKinds>
+			<orm:ReferenceModeKind id="_79FA53F9-847B-40A8-98EF-C85DC685B1BC" FormatString="{1}" ReferenceModeType="General" />
+			<orm:ReferenceModeKind id="_E5759D77-CF28-4163-ABCE-8C38A047A422" FormatString="{0}_{1}" ReferenceModeType="Popular" />
+			<orm:ReferenceModeKind id="_D3E1B14A-6AD6-4FE0-AA0E-6F2B3AD71871" FormatString="{1}Value" ReferenceModeType="UnitBased" />
+		</orm:ReferenceModeKinds>
+	</orm:ORMModel>
+	<orm:ModelErrorDisplayFilter id="_701CDC76-0AA2-49B0-903A-81571D5CB7F8" ref="_93e1ae62-18b6-4097-a260-9fd184127639">
+		<orm:ExcludedErrors>
+			<orm:DataTypeNotSpecifiedError />
+		</orm:ExcludedErrors>
+	</orm:ModelErrorDisplayFilter>
+	<ormDiagram:ORMDiagram id="_E4CCDEE3-21E8-401E-B49B-7555BB7C1140" IsCompleteView="false" Name="ORMModel1" BaseFontName="Tahoma" BaseFontSize="0.0972222238779068">
+		<ormDiagram:Shapes>
+			<ormDiagram:ObjectTypeShape id="_0153A5A1-4A88-4379-B03A-FEB43ECFB736" IsExpanded="true" AbsoluteBounds="5.0975560284769692, 1.6182071726383496, 0.76778417348861694, 0.35900605320930479">
+				<ormDiagram:Subject ref="_94430B68-2A5A-45CD-BF22-758BF0334503" />
+			</ormDiagram:ObjectTypeShape>
+			<ormDiagram:FactTypeShape id="_50DDA8BC-8BCB-4C6E-805E-632401F17A9B" IsExpanded="true" AbsoluteBounds="6.0998770628285426, 1.6250520277023317, 0.38388888899236917, 0.24388888899236916">
+				<ormDiagram:RelativeShapes>
+					<ormDiagram:ReadingShape id="_3CC4C269-B5BE-46EF-A5E1-BF45BD075D21" IsExpanded="true" AbsoluteBounds="6.0699291472328971, 1.9247080553183333, 0.63667577505111694, 0.12950302660465241">
+						<ormDiagram:Subject ref="_DE4E2688-1E9C-4488-9042-E46931061897" />
+					</ormDiagram:ReadingShape>
+				</ormDiagram:RelativeShapes>
+				<ormDiagram:Subject ref="_FD1BF043-F174-4DDC-A96B-BA1B4997A0B6" />
+			</ormDiagram:FactTypeShape>
+			<ormDiagram:FactTypeShape id="_F25F02A1-460E-4626-BE7A-286EAD564A4F" IsExpanded="true" AbsoluteBounds="4.468228816986084, 1.6250520277023315, 0.38388888899236917, 0.24388888899236916">
+				<ormDiagram:RelativeShapes>
+					<ormDiagram:ReadingShape id="_DE9E50BF-898E-4FD4-A292-EAD725FDA564" IsExpanded="true" AbsoluteBounds="4.290139910481912, 1.9336924299970268, 0.71814959049224858, 0.12950302660465241">
+						<ormDiagram:Subject ref="_1D2F0AAD-2D8F-4CF0-B789-DFF46E5F97A1" />
+					</ormDiagram:ReadingShape>
+				</ormDiagram:RelativeShapes>
+				<ormDiagram:Subject ref="_411B1CF6-B818-4C9A-A287-702189D4B2C6" />
+			</ormDiagram:FactTypeShape>
+			<ormDiagram:ObjectTypeShape id="_B300F000-DA65-434F-9A4D-D38440F90EA0" IsExpanded="true" AbsoluteBounds="6.9439867920601666, 1.6024934455938638, 0.55363896012306224, 0.35900605320930479">
+				<ormDiagram:Subject ref="_92F9FA80-A73A-48E8-B4E5-5C6585761219" />
+			</ormDiagram:ObjectTypeShape>
+			<ormDiagram:ExternalConstraintShape id="_A0F77F51-7922-477C-99CB-B9C92A889609" IsExpanded="true" AbsoluteBounds="5.4421873092651367, 1.0803186893463135, 0.16, 0.16">
+				<ormDiagram:Subject ref="_67CEE11C-4CD0-4FC9-8BBA-DEA59B001EDE" />
+			</ormDiagram:ExternalConstraintShape>
+			<ormDiagram:ObjectTypeShape id="_8A48F0C5-D768-4F89-A3C9-2A178B2BC908" IsExpanded="true" AbsoluteBounds="3.4945752334743556, 1.5917372263513621, 0.51172136783599853, 0.35900605320930479">
+				<ormDiagram:Subject ref="_AD8CE22B-F8A9-43F2-9F55-736B82099863" />
+			</ormDiagram:ObjectTypeShape>
+		</ormDiagram:Shapes>
+		<ormDiagram:Subject ref="_93E1AE62-18B6-4097-A260-9FD184127639" />
+	</ormDiagram:ORMDiagram>
+</ormRoot:ORM2>
